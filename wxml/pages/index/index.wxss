@@ -1,0 +1,41 @@
+.banner {
+  margin-top: 40%;
+  text-align: center;
+}
+
+.banner > image {
+  width: 500rpx;
+  height: 300rpx;
+}
+
+.search {
+  width: 580rpx;
+  height: 80rpx;
+  margin: 4% auto;
+  border-radius: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  background-color:rgb(228, 228, 228);
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+}
+.search input{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.search-btn{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 40rpx;
+  position: relative;
+  right:-130rpx;
+}
+.search-btn-icon{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 40rpx;
+  position:relative;
+  left:-14px;
+}

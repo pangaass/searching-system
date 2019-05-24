@@ -1,0 +1,12 @@
+<view class='search'>
+  <input placeholder="请输入要查询的信息.." maxlength="40" bindinput='setQueryStr' value="{{queryStr}}"></input>
+  <!-- <button bindtap='search' size='mini'>Search</button> -->
+  <view class='button' bindtap='search'>Search</view>
+</view>
+<view class='container'>
+  <view class='box' wx:for="{{results}}" wx:for-index="id" bindtap='toWebView' data-id="{{id}}">
+    <view class='title'>{{results[id]._source.title}}</view>
+    <view class='description'>{{results[id]._source.article}}</view>
+    <view class='url'>{{results[id]._source.url}}</view>
+  </view>
+</view>

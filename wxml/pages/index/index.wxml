@@ -1,0 +1,7 @@
+<view class='banner'>
+  <image src="../../images/banner.png"></image>
+</view>
+<view class='search'>
+  <input placeholder="请输入要查询的信息.." maxlength="40" bindinput='setQueryStr'></input>
+  <button class='search-btn' bindtap='search'><image src="../../images/icon_search.png" class='search-btn-icon'></image></button>
+</view>

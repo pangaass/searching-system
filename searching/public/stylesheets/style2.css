@@ -1,0 +1,139 @@
+
+img{max-width:100%;}
+ 
+.s-bar2{
+   
+   font-family: 'Open Sans', sans-serif;
+   font-size: 70%;
+}
+.s-bar2 {
+  width: 34%;
+  margin: 0 auto;
+  padding: 0.5em 0em 0.5em 0em;
+  position: relative;
+  left: -273px;
+  
+}
+.s-bar2 input[type="text"] {
+  font-size: 1em;
+  font-weight: 600;
+  color:rgb(167, 161, 161);
+  padding: 1.3em 1em 1.3em 1.5em;
+  width: 70%;
+ text-shadow: rgba(80, 80, 80, 0.08) 1px 1px, 
+               rgba(80, 80, 80, 0.07) 2px 2px, 
+               rgba(80, 80, 80, 0.09) 3px 3px, 
+               rgba(80, 80, 80, 0.04) 4px 4px, 
+               rgba(80, 80, 80, 0.06) 5px 5px; 
+  border-radius: 5px 0px 0px 5px;
+ -webkit-border-radius: 5px 0px 0px 5px;
+  -moz-border-radius: 5px 0px 0px 5px;
+  -o-border-radius: 5px 0px 0px 5px;
+  background: rgba(201, 192, 192, 0.5);
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+.s-bar2 input[type="button"]
+{
+  background:#7ac209; 
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  padding: 1.3em 0.5em;
+  width: 22%;
+  text-align: center;
+  text-shadow: rgba(80, 80, 80, 0.08) 1px 1px, 
+               rgba(80, 80, 80, 0.07) 2px 2px, 
+               rgba(80, 80, 80, 0.09) 3px 3px, 
+               rgba(80, 80, 80, 0.04) 4px 4px, 
+               rgba(80, 80, 80, 0.06) 5px 5px;
+  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius:0px 5px 5px 0px;
+  -moz-border-radius:0px 5px 5px 0px;
+  -o-border-radius:0px 5px 5px 0px;
+  margin: 0px 0px 0px -4px;
+  cursor:pointer;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  
+}
+
+
+
+@media(max-width:1440px){
+
+.s-bar2 {
+  width: 40%;
+ 
+}
+}
+@media(max-width:1366px){
+
+}
+
+.s-bar2 input[type="text"] {
+  width: 63%;
+}
+
+
+@media(max-width:1024px){
+.s-bar2 {
+  width: 50%;
+}
+
+
+}
+@media(max-width:768px){
+
+
+.s-bar2 {
+  width: 58%;
+}
+
+.s-bar2 input[type="text"] {
+  width: 67%;
+}
+
+}
+@media(max-width:640px){
+.s-bar2 {
+  width: 65%;
+}
+
+}
+
+@media(max-width:568px){
+.s-bar2 input[type="text"] {
+  width: 64%;
+}	
+}
+@media(max-width:480px){
+.s-bar2 input[type="text"] {
+  width: 55%;
+  font-size: 0.8em;	
+}
+
+}
+
+@media(max-width:320px){
+
+
+.s-bar2 {
+  width: 100%;
+  
+}
+
+.search p {
+  font-size: 0.72em;
+}
+.s-bar2 input[type="submit"] {
+  text-shadow: rgba(80, 80, 80, 0.08) 1px 1px, 
+               rgba(80, 80, 80, 0.07) 2px 2px, 
+               rgba(80, 80, 80, 0.09) 3px 3px, 
+               rgba(80, 80, 80, 0.04) 4px 4px, 
+               rgba(80, 80, 80, 0.06) 5px 5px;              
+}
+}
+

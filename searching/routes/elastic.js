@@ -19,7 +19,7 @@ module.exports = (query,page)=>{
                             "match_phrase": {
                                 "article": {
                                     "query": query,
-                                    "slop": 100
+                                    "slop": 10
                                 }
                             }
                         }

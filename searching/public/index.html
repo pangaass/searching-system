@@ -23,11 +23,11 @@
 			</div>
 		</div>
 		<div class="s-bar2" v-if="searched">
-			<form onsubmit = "return false">
-				<input type="text" id="query"  v-model = "query" value="Search Bar" onfocus="this.value = '';"
+			<form onsubmit="return false">
+				<input type="text" id="query" v-model="query" value="Search Bar" onfocus="this.value = '';"
 					onblur="if (this.value == '') {this.value = 'Search Bar';}">
 
-				<input type="button" value="Search" @click = "search" />
+				<input type="button" value="Search" @click="search" />
 			</form>
 		</div>
 		<!-- <div class="result_list" v-if="searched">
@@ -45,9 +45,9 @@
 		<!-- 结果列表粘贴开始 -->
 		<div class="result_list" v-if="searched">
 			<div class="result_num">
-					<span>{{total}}条结果</span>
+				<span>{{total}}条结果</span>
 			</div>
-			
+
 			<ol>
 				<li v-for="(li,index) in list">
 					<div class="result c-container ">
@@ -64,9 +64,19 @@
 					</div>
 				</li>
 			</ol>
+			<div>
+				
+			</div>
+			<!-- <p style = "padding-left:100px">第{{page_now}}/{{page}}页</p> -->
 			<ol>
-				<li><div class="page"><button @click="lastPage">上一页</button></div></li>
-				<li><div class="page"><button @click="nextPage">下一页</button></div></li>
+					
+				<li>
+					<div class="page"><button @click="lastPage">上一页</button></div>
+				</li>
+				
+				<li>
+					<div class="page"><button @click="nextPage">下一页</button></div>
+				</li>
 			</ol>
 		</div>
 
@@ -90,18 +100,17 @@
 					if (this.query == "")
 						return;
 					else {
+						this.page_now = 1,
 						axios.get(`/search`, {
 								params: {
 									query: this.query,
-									page: this.page,
+									page: 1,
 								}
 							})
 							.then(response => {
 								var data = response.data.hits;
 								this.total = data.total.value;
-
 								this.list = data.hits;
-
 								this.page = parseInt(this.total / 10);
 								this.searched = true;
 

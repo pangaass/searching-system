@@ -1,0 +1,37 @@
+{
+    "url": ["www.ncepu.edu.cn"],
+    "matchingRules": {
+        "url": {
+            "maches": ["ncepu"],
+            "nomaches": ["gov.cn"]
+        },
+        "body": {
+            "delete": [
+                "/<(script|style)(.|s)*?<\/(style|script)>/gi",
+                "/<(link|img)[^>]*>/gi",
+                "/<(?!br).*?>/gi",
+                "/s/g"
+            ],
+            "replace":[
+                {
+                    "from":"/&#x/g",
+                    "to":"%u"
+                },
+                {
+                    "from":"/;/g",
+                    "to":""
+                },
+                {
+                    "from":"/<title>/g",
+                    "to":""
+                },
+                {
+                    "from":"/<\/title>/g",
+                    "to":""
+                }   
+            ]
+
+        }
+    }
+
+}

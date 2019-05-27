@@ -1,0 +1,14 @@
+{
+  "name": "oshomework",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ myapp --out ./OutApp --electron-version 5.0.2 --overwrite "
+  
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron-packager": "^13.1.1"
+  }
+}

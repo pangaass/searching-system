@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>华北电力大学校内资源搜索引擎</title>
+	<!-- Custom Theme files -->
+	<link href="stylesheets/style2.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script type="text/javascript " src="javascripts/vue.min.js"></script>
+	<script type="text/javascript " src="javascripts/axios.min.js"></script>
+</head>
+
+<body class="body">
+	<!--search start here-->
+	<div id="main_part">
+		<div class="search" v-if="!searched" v-bind:class="{searched:searched}">
+			<div class="s-bar">
+				<form name="search" onsubmit="return false">
+					<input type="text" v-model="query">
+					<input type="submit" value="search" @click="search" />
+				</form>
+			</div>
+		</div>
+		<div class="s-bar2" v-if="searched">
+			<form onsubmit="return false">
+				<input type="text" id="query" v-model="query" value="Search Bar" onfocus="this.value = '';"
+					onblur="if (this.value == '') {this.value = 'Search Bar';}">
+
+				<input type="button" value="Search" @click="search" />
+			</form>
+		</div>
+		<!-- <div class="result_list" v-if="searched">
+			<span>{{total}}条结果</span>
+			<ol> -->
+		<!-- <li v-for="(li,index) in list">
+					<h2>
+						<a target="_blank" v-bind:href=li._source.url>{{li._source.title}}</a>
+					</h2>
+					<div>
+						<p>{{li._source.article}}</p>
+						<div>{{li._source.url}}</div>
+					</div>
+				</li> -->
+		<!-- 结果列表粘贴开始 -->
+		<div class="result_list" v-if="searched">
+			<div class="result_num">
+				<span>{{total}}条结果</span>
+			</div>
+
+			<ol>
+				<li v-for="(li,index) in list">
+					<div class="result c-container ">
+						<h3 class="t"><a v-bind:href=li._source.url target="_blank">{{li._source.title}}</a>
+						</h3>
+						<div class="c-abstract">
+							{{li._source.article}}
+						</div>
+						<div class="f13"><a target="_blank" v-bind:href=li._source.url class="c-showurl"
+								style="text-decoration:none;">
+								<font color="339966">{{li._source.url}}</font>&nbsp;
+							</a>
+						</div>
+					</div>
+				</li>
+			</ol>
+			<div>
+				
+			</div>
+			<!-- <p style = "padding-left:100px">第{{page_now}}/{{page}}页</p> -->
+			<ol>
+					
+				<li>
+					<div class="page"><button @click="lastPage">上一页</button></div>
+				</li>
+				
+				<li>
+					<div class="page"><button @click="nextPage">下一页</button></div>
+				</li>
+			</ol>
+		</div>
+
+		<!-- 结果列表粘贴结束 -->
+		</ol>
+	</div>
+	</div>
+	<script typt="text/javascript">
+		var vue = new Vue({
+			el: "#main_part",
+			data: {
+				query: "",
+				searched: false,
+				list: [],
+				page: undefined,
+				total: undefined,
+				page_now: 1,
+			},
+			methods: {
+				search: function () {
+					if (this.query == "")
+						return;
+					else {
+						this.page_now = 1,
+						axios.get(`http:192.144.161.67:3000/search`, {
+								params: {
+									query: this.query,
+									page: 1,
+								}
+							})
+							.then(response => {
+								var data = response.data.hits;
+								this.total = data.total.value;
+								this.list = data.hits;
+								this.page = parseInt(this.total / 10);
+								this.searched = true;
+
+							})
+							.catch(function (error) {
+								console.log('get an error :' + error);
+							})
+					}
+				},
+				nextPage: function () {
+					axios.get(`http:192.144.161.67:3000/search`, {
+							params: {
+								query: this.query,
+								page: ++this.page_now,
+							}
+						})
+						.then(response => {
+							var data = response.data.hits;
+							this.total = data.total.value;
+
+							this.list = data.hits;
+
+							this.page = parseInt(this.total / 10);
+							this.searched = true;
+
+						})
+						.catch(function (error) {
+							console.log('get an error :' + error);
+						})
+				},
+				lastPage: function () {
+					if (this.page_now == 1) {
+						return;
+					} else {
+						axios.get(`http:192.144.161.67:3000/search`, {
+								params: {
+									query: this.query,
+									page: --this.page_now,
+								}
+							})
+							.then(response => {
+								var data = response.data.hits;
+								this.total = data.total.value;
+
+								this.list = data.hits;
+
+								this.page = parseInt(this.total / 10);
+								this.searched = true;
+
+							})
+							.catch(function (error) {
+								console.log('get an error :' + error);
+							})
+					}
+				}
+
+			},
+		})
+	</script>
+	<!-- 结果列表页数 begin -->
+
+	<!-- 结果列表页数 end -->
+	<!--search end here-->
+	<div class="copyright">
+		<p>2015 &copy All rights reserved | Powered by hunters</p>
+	</div>
+</body>
+
+</html>

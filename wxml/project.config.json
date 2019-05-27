@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.0",
-	"appid": "wx13d459dd2464668b",
-	"projectname": "2018%E5%B9%B4%E4%B8%8B-%E5%A4%A7%E5%88%9B",
+	"appid": "wx33bce07d16830c0b",
+	"projectname": "wxml",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
